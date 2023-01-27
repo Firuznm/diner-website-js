@@ -1,0 +1,1452 @@
+@import "variables";
+@import "all_css_infos";
+
+
+@mixin flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+@mixin flex0 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@mixin flex1 {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+@mixin flex2 {
+      width: 50%;
+      display: flex;
+      justify-content: space-between;
+}
+@mixin flex3 {
+    display: flex;
+    flex-direction: column;
+}
+
+// === saytda bir nece yerde istifade olundugu ucun qlobal yazildi(BUTTON):
+.btn{
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid $btn_border_and_write_color;
+    color: $btn_border_and_write_color;
+}
+a.btn:hover{
+    background-color: $btn_border_and_bgcolor_hover;
+    border-color: $btn_border_and_bgcolor_hover;
+    color: white;
+}
+.no-active{
+    display: none;
+}
+.line-curve-image{
+   
+    // margin-top: 170px;
+    width: 100%;
+    height: 50px;
+ img{width: 100%; height: 100%;
+     object-fit: cover;}  } 
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Section Start   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// ====   header section start   ====
+  
+  .logo,
+  .content {
+    color: #fafafa;
+  }
+  .nav {
+    width: 100%;
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 99999999;
+  }
+  .logo,
+  #hamburger {
+    margin: 2%;
+  }
+  
+  #hamburger {
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.25s linear;
+    width: clamp(1.5rem, 2vw + 1.1rem, 6rem);
+    height: clamp(2rem, 1.4vw + 1.7rem, 5rem);
+    display: flex;
+    align-items: center;
+  }
+  
+  #hamburger:hover {
+    opacity: 1;
+  }
+  #hamburger div,
+  #hamburger div:after,
+  #hamburger div:before {
+    background-color: #fafafa;
+    border-radius: 10px;
+    width: clamp(1.5rem, 2vw + 1.1rem, 6rem);
+    height: clamp(0.2rem, 0.3vw + 0.1rem, 0.8rem);
+    transition: all 0.15s linear;
+  }
+  
+  #hamburger div:before,
+  #hamburger div:after {
+    content: "";
+    position: absolute;
+  }
+  
+  #hamburger div:before {
+    transform: translateY(-200%);
+  }
+  
+  #hamburger div:after {
+    transform: translateY(200%);
+  }
+  
+  #hamburger.open div {
+    background: transparent;
+  }
+  
+  #hamburger.open div:before {
+    transform: rotate(45deg);
+  }
+  
+  #hamburger.open div:after {
+    transform: rotate(-45deg);
+  }
+  
+  #overlay {
+    position: fixed;
+    width: 100%;
+    min-height: 100%;
+    background-color: #1a1a1a;
+    z-index: 99999999;
+    transform: translateY(-100%);
+    transition: all 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #overlay.menu {
+    transform: translateY(0%);
+  }
+  
+  #overlay a {
+    text-decoration: none;
+    color: #fafafa;
+    font-size: 2em;
+    margin: 10px 0;
+    opacity: 0.5;
+    transition: opacity 0.2s linear;
+  }
+  #overlay a:hover {
+    opacity: 1;
+  }
+.social ul { width: 60px;
+              height: 30px;
+              @include flex0();
+ a>i{color: white;}     }        
+
+//  <!-- oz yazdigim nav bar menu  -->
+// #header-transparent{
+//          width: 100%;
+//          height: 100px;
+//          position: fixed;
+//          top: 0;
+//          left: 0;
+//          z-index: 9999999;
+//          background-color: transparent;
+// .head-transparent{
+//         margin: 0 auto;
+//         width: 90%;
+//        @include flex0();
+// .social ul { width: 60px;
+//              height: 100px;
+//              @include flex0();
+// a>i{color: white;}             
+// }   
+// a>span{ padding: 14px 20px; 
+//         border: 2px solid white;
+//         font-size: 2em;
+//         color: white;}
+// .menu-bar{ font-size: 2em;
+//           color: white;
+//           cursor: pointer;
+// &:hover{      
+//             transform: scale(1.5);        }         
+// }}}
+
+// #header-white{
+//     width: 100%;
+//     height: 100px;
+//     position: fixed;
+//     top: 0;
+//     left: 0;
+//     z-index: 99999999999;
+//     background-color: white;
+//     .head-white{
+//         margin: 0 auto;
+//         width: 90%;
+//        @include flex0();
+// .social ul { width: 60px;
+//              height: 100px;
+//              @include flex0();
+// a>i{color: black;}             
+// }   
+// a>span{ padding: 14px 20px; 
+//         border: 2px solid black;
+//         font-size: 2em;
+//         color: black;}
+// .menu-bar{ font-size: 2em;
+//           color: black;
+//           cursor: pointer;
+// &:hover{
+//     transform: scale(1.5);
+// }        }         
+// }   } 
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Section Start   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+//=====   main section start =====
+#home-main{background-image: url("../images/bgimg.webp");
+           background-position: center;}
+.main {
+width: 100%;
+height: 100vh;
+.about-restaurant{
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 200px;
+h1{font-size: 3em;font-weight: 100; color: white; text-align: center;}
+    p{  
+        color: white;
+        font-size: 3.7em;
+        line-height: 1.5em;
+        font-weight: 100;
+        text-align: start;
+    }}
+.pages-menu{
+    width: 100%;
+    height: 100vh;
+    background-color: #000;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+.pages{
+  padding-top: 200px;
+li>a{   display: inline-block;
+        font-size: 2.5em;
+        font-weight: 100;
+        margin-top: 10px;
+        color: white;
+}}   }}
+
+// ====  main section Responsivliyi ====
+@media screen and (max-width: 780px){
+    .main {
+        width: 100%;
+        height: 500px;
+        .about-restaurant{
+            width: 90%;
+            padding-top: 200px;
+            h1{font-size: 2em; }
+            p{  
+                font-size: 1.7em;
+                font-weight: 100;
+                text-align: start;
+            }   }}}
+ @media screen and (max-width: 480px){
+.main {     width: 100%;
+            height: 700px;
+.about-restaurant{   width: 90%;
+                     padding-top: 170px;
+                     h1{font-size: 2em; font-weight: 900;}
+p{   font-size: 1.4em;  }   }}}   
+
+
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   Section Start   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// ====   services section start ===
+#service{
+.row{
+      @include flex();
+.col{
+        width: 21%;
+        text-align: center;
+span{
+     display: inline-block;
+     width: 100px;
+     height: 100px;
+     border-radius: 100%;
+     font-size: 2em;
+     text-align: center;
+     background-color: $services_icon_bgcolor;
+i{
+    line-height: 100px;
+         }
+        }
+h5{
+    padding: 30px 0; 
+    font-weight: 0.4em;
+   font-size: 1.5em;
+}  
+p{
+    line-height: 1.5em;
+    font-size: 1.1em;
+    font-weight: 50;
+    color: $write_color;
+}      
+}
+}  
+}
+
+// === services sectionun  responsivliyi
+@media screen and (max-width: 780px){
+#service{
+.row{
+            flex-wrap: wrap;
+.col{
+            width: 45%;
+            padding-top: 30px;
+h5{
+            padding: 20px 0; 
+            font-weight: 0.4em;
+            font-size: 1em;
+                                }  
+p{
+            line-height: 1.3em;
+            font-size: 1.5em;
+        }      
+            }}}}
+@media screen and (max-width: 480px){
+#service{
+.row{
+            flex-wrap: wrap;
+.col{
+            width: 90%;
+            padding-top: 30px;
+h5{
+            padding: 30px 0; 
+            font-weight: 0.7em;
+            font-size: 1.8em;
+                                                }  
+p{
+            line-height: 1.3em;
+            font-size: 1.5em;
+                        }      
+                            }}}}            
+
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   Section Start   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>        
+// ======= MenuPrice section start   ======
+#menuPrice{
+.specialties{
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 100px;
+h3{
+    font-size: 2em;
+    font-weight: 100;
+    padding: 20px 0;
+}
+p{
+    line-height: 1.8em;
+    color: $write_color;
+}    
+}  
+.row{
+    @include flex();
+    flex-wrap: wrap;
+.col{
+    display: flex;
+    width: calc(100% / 3);
+    height: 300px;
+.menuImage{
+    width: 50%;
+img{
+    width: 100%;
+    height: 300px;
+}    
+} 
+.priceFood{
+    width: 50%;
+    background-color: $priceFood_bgcolor;
+    color: white;
+    text-align: center;
+    padding:30px;
+    text-align: start;
+h5{
+    font-size: 1.2em;
+    font-weight: 18;
+}
+p{
+    font-size: 0.9em;
+    padding: 20px 0;
+    color: $write_color;
+    line-height: 1.8em;
+}  
+span{
+    font-size: 1.5em;
+    color: $price_color;
+}  
+}   
+}    
+}  
+}
+//   ====== MenuPrice section responsivlik  ========
+@media screen and (max-width: 780px){
+#menuPrice{
+.specialties{
+    width: 90%;    }
+.row{
+            flex-wrap: wrap;
+.col{
+            width: calc(100% / 2);
+ 
+
+          
+h5{
+            font-size: 1.2em;
+            font-weight: 10;
+        }
+        }    
+        }  
+        }}
+ @media screen and (max-width: 480px){
+    #menuPrice{
+        .specialties{
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;}   
+    .row{
+                flex-wrap: wrap;
+    .col{
+                width: 100%;
+              
+            }    
+            }  
+            }}
+           
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   Section Start   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>            
+//  =====   slider(swiper) section start======
+  .row-swiper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    p{
+        line-height: 1.5em;
+        color: $swiper_p_color;
+    }
+    .image{
+        width: 100px;
+        height: 100px;
+       margin: 20px 0;
+        
+       img{
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+       } 
+    }
+    h5{
+        font-size: 1.5em;
+        font-weight: 100;
+    }
+    h6{
+        color: $swiper_h6_color;
+        padding-top: 10px;
+        font-size: 1em;
+        font-weight: 100;
+    }
+  }
+//   html,
+//   body {
+//     position: relative;
+//     height: 100%;
+//   }
+//   body {
+//     background: #eee;
+//     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+//     font-size: 14px;
+//     color: #000;
+//     margin: 0;
+//     padding: 0;
+//   }
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+// ===     swiper section responsivliyi=====
+  @media screen and (max-width: 480px){
+    .row-swiper{
+        width: 100%;
+        p{
+            padding: 0 40px;
+            text-align: start;
+        }
+  }}
+
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   Section Start   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   
+//======   aboutRestoran section start  =====
+//======   Qlobal olanlar ======
+.cart{
+    width: 50%;
+    height: 500px;
+    background-color: #000;
+    text-align: start;
+    padding: 40px;
+h4{
+    font-size: 2.5em;
+    font-weight: 100;
+    color: white;
+}
+p{
+    color: $write_color;
+    line-height: 1.5em;
+    font-size: 1.2em;
+    margin: 30px 0;
+}    
+}
+//=====    bu ise adi scss  yazilisdir ======
+#aboutRestoran{
+            margin-top: 100px;
+            width: 100%;
+.abotMeals{
+            display: flex;
+.aboutRestoran-left{
+            @include flex1();
+.image-meat{
+            background-image: url("../images/10\ img_1.jpg.webp");
+            background-position: center;
+            width: 100%;
+            height: 350px;
+}  
+.about-salad{
+             display: flex;
+             width: 100%;
+.image-salad{
+             width: 50%;
+             height: 500px;
+             background-image: url("../images/11\ img_2.jpg.webp");
+             background-position: center;
+}             
+}          
+}  
+.aboutRestoran-right{
+           @include flex1();
+.about-cook{
+           display: flex;
+           width: 100%;
+.image-chef{
+            width: 50%;
+            height: 500px;
+            background-image: url("../images/12\ chef_1.jpg.webp");
+            background-position: center;
+}           
+} 
+.image-meals{
+             width: 100%;
+             height: 350px;
+             background-image: url("../images/13\ chef_2.jpg.webp");
+             background-position: center;
+}          
+}          
+}
+}
+// ====   aboutRestoran section   Responsivliyi =====
+@media screen and (max-width: 780px){
+    // ===== qlobal olan ====
+    .cart{
+        width: 100%;
+        height: 350px;
+        padding: 50px;
+     
+    }
+//    =========== 
+    #aboutRestoran{
+        margin-top: 50px;
+        width: 100%;
+.abotMeals{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+.aboutRestoran-left{
+        flex-direction: column;
+        width: 100%;
+.about-salad{
+            flex-direction: column;
+            width: 100%;
+.image-salad{
+         width: 100%;
+         height: 500px;
+}             
+}          
+}  
+.aboutRestoran-right{
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+.about-cook{
+           flex-direction: column;
+           width: 100%;
+.image-chef{
+        width: 100%;
+        height: 500px;
+}           
+} 
+.image-meals{
+         width: 100%;
+         height: 350px;
+}          
+}          
+}
+}
+}
+@media screen and (max-width: 480px){
+    .cart{
+        width: 100%;
+        height: 350px;
+    h4{
+        font-size: 1.5em;
+    }
+    p{
+        line-height: 1.2em;
+        font-size: 1.2em;
+    }    
+    }
+}
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   Section Start   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 
+// ====== Menu List with Price SECTION START  =====
+//    bu sectionda qlobal olanlar:
+a.active{ border-bottom: 2px solid $a_bootom_line_color;
+         }  
+.meals-name-price{ 
+    margin: 80px auto 50px; 
+    @include flex1();
+.meal-name{
+   display: flex;
+   justify-content: space-between;
+h4{    font-size: 1.5em;
+    font-weight: 100;
+    margin-bottom: 10px; } 
+span{   font-size: 1.5em;
+    color: $price_color; }          
+}} 
+p{    color: $write_color;
+    font-size: 1.1em;
+   line-height: 1.5em;
+    width: 90%;
+    }
+hr{  border: 0.2px dotted $write_color;
+ width: 70%;
+ margin: 0 auto;}  
+.menu-list-breakfast{
+   display: none;}
+.menu-list-brungh{
+    display: none;}
+.active{
+    display: block;}
+// ====     bu ise adi scss  yazilisdir ======
+#menu-list-price{
+.container{
+.about-menu{
+                    text-align: center;
+h3{                 font-size: 2.5em; font-weight: 100;}                    
+.menu-list{         
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 20px;
+
+                      
+a{                  display: inline-block;
+                    margin: 20px;
+                    font-size: 1.1em;
+                    color: $write_color;
+                    letter-spacing: 7px;  
+ 
+          } }}}} 
+// ======   Menu List with Price Responsivliyi =======                                                                
+ @media screen and (max-width: 780px){
+#menu-list-price{
+.container{
+.about-menu{
+                 text-align: center;
+h3{              font-size: 1.8em;}                    
+                }}}}
+@media screen and (max-width: 780px){
+#menu-list-price{
+.container{
+.about-menu{
+                            text-align: center;
+h3{                         font-size: 1.7em;}                    
+       
+.menu-list{                              
+a{                          display: inline-block;
+                            margin: 10px;
+                            font-size: 1em;
+                            letter-spacing: 4px;  
+                  } }}}}   }  
+
+
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   Section Start   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                   
+// =======   Events & News   section start  ============
+//         section ucun qlobal olanlarin scss-i
+.carts{
+         display: flex;
+         justify-content: space-between;
+         margin-bottom: 80px;
+.image{ width: 33%; height: 170px;
+img   { width: 100%; height: 100%;}}}
+.info{
+      width: 60%;
+h5{   font-size: 1.2em; font-weight: 500;}
+span{   display: block;
+        margin: 20px 0; 
+        color: $write_color;
+.icon{  padding-right: 10px;}  } 
+p{      line-height: 1.5em;
+        font-size: 1.2em;
+        color: $write_color;
+        margin: 20px 0;}     
+}         
+// ====     bu ise adi scss  yazilisdir ======
+#Events-News{
+.container{ 
+.news-header{ width: 70%;
+              margin: 70px auto;
+              text-align: center;
+h4{  font-size: 3em; font-weight: 200;} 
+p{   font-size: 1.2em; font-weight: 100; 
+      line-height: 1.5em;
+      margin: 20px auto;
+     color: $write_color;}           
+             }    
+.news{
+    display: flex;
+    justify-content: space-between;
+.news-left{
+          width: 47%;
+}   
+.news-right{
+    width: 47%;
+.image{ width: 100%; height: 450px;
+        margin-bottom: 20px;
+img   {   width: 100%; height: 100%;}}    
+} }}}
+//===  Events & News   section    responsivliyi ======
+@media screen and (max-width: 780px){
+.carts{
+        display: flex;
+        flex-direction: column;
+.image{ width: 100%; height: 570px;
+ img   { width: 100%; height: 100%;}}}
+.info{
+     width: 100%;
+     margin-top: 50px;
+}         
+// ====  bu ise adi scss  yazilisdir 
+#Events-News{  margin-bottom: 50px;
+.container{ 
+.news-header{text-align: center;}    
+.news{
+         display: flex;
+         flex-direction: column;
+.news-left{
+         width: 100%;
+}   
+.news-right{
+   width: 100%;
+.image{   width: 100%; height: 570px;
+          margin-bottom: 20px;
+img   {   width: 100%; height: 100%;}}    
+} }}}}
+@media screen and (max-width: 480px){
+    .carts{
+    .image{ width: 100%; height: 250px;
+     img   { width: 100%; height: 100%;}}}
+           
+    // ====  bu ise adi scss  yazilisdir 
+#Events-News{
+.container{ 
+.news-header{
+             width: 100%;
+h4{  font-size: 1.5em; font-weight: 100;} 
+p{   font-size: 1em; font-weight: 100; 
+}           
+           }     
+.news{
+.news-right{
+       width: 100%;
+.image{   width: 100%; height: 250px;
+img   {   width: 100%; height: 100%;}}    
+    } }}}}
+ 
+    
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   Section Start   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>    
+// ==== Section  Why Choose Us   start ===== 
+#why-choose-us{
+    background-color: white;
+.container{
+.choose-header{     width: 70%;
+                    margin: 70px auto;
+                    text-align: center;
+h3{ font-size: 2.5em; font-weight: 100;margin-bottom: 20px;}                }
+.choose{
+          display: flex;
+          justify-content: space-between;
+.choose-left{
+       width: 50%;
+       height: 600px;
+img{  width: 100%; height: 100%;}       
+}
+.choose-right{
+     width: 45%;
+     height: 800px;
+     .accordion {
+       display: flex; justify-content: space-between;
+       align-items: center;
+       width: 100%;
+       cursor: pointer;
+       background-color: white;
+       border: none;
+       border-bottom: 1px solid $write_color;
+       transition: 0.4s;
+       h5{
+        font-size: 2em;font-weight: 100;
+        margin: 10px 0;
+       }
+      }
+      .panel {
+        display: none;
+        background-color: white;
+        overflow: hidden;
+p{
+   width: 100%;
+    background-color: white;
+    overflow: hidden;
+}}}}}}
+// ==== Section  Why Choose Us Responsivliyi  ====
+@media screen and (max-width: 780px){
+ #why-choose-us{  
+.container{  
+.choose{
+.choose-left{
+           width: 50%;
+           height: 400px;
+    img{  width: 100%; height: 100%;} }      
+.choose-right{
+         width: 45%;
+         height: 700px; 
+.accordion {
+h5{font-size: 1.2em;font-weight: 100;}}
+.panel {
+p{  font-size: 0.9em; 
+   }}}}}}}
+@media screen and (max-width: 480px){
+#why-choose-us{
+.container{
+.choose-header{     width: 90%;
+h3{ font-size: 1.3em;  }  }
+.choose{ display: flex;
+            flex-direction: column;
+.choose-left{
+              width: 90%;
+             height: 300px;
+    img{    width: 100%; height: 100%;}  }     
+.choose-right{
+         width: 90%;
+         height: 600px;
+.accordion {   font-size: 1.3em;  font-weight: 100;   margin: 10px 0;}}
+p{    font-size: 0.8em; }}}}}           
+           
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   Section Start   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+// ==== Footer section start =====
+#footer-section{
+    margin-top: 100px;
+// Footer section ucun qlobal olanlar
+h4{ font-size: 1.5em;
+    font-weight: 100;
+    margin:20px;}
+p{ font-size: 1.2em;
+    color: $write_color;}   
+.links-list > li{
+    list-style-type: disc;
+    font-size: 1.2em;
+    font-weight: 100;
+    line-height: 2.1em;
+    color: $write_color;}
+.links-list > li>a{
+    color: #fdb44b;
+    display: inline-block;}
+    // ====     bu ise adi scss  yazilisdir ======
+.container{
+.footer{
+    display: flex;
+    justify-content: space-between;
+.footer-left{ @include flex2();
+.dinner-restaurant{ width: 40%;} 
+.lunch-dinner-service{width: 55%;}             
+}
+.footer-right{ @include flex2();
+.links{width: 45%;}   
+.Subscribe{  @include flex3();  width: 45%;
+.inp{ display: flex;
+input{ border: none;    }
+button{        padding: 10px 15px;
+               background-color: #fdb44b;
+               border-color: #fdb44b;}     }    
+.email{
+            font-size: 1.3em;
+            color: #fdb44b;
+            margin: 30px 0;   }
+.number{
+            font-size: 2em;
+            margin-bottom: 50px;} 
+}}}}
+.footer-botom{  width: 100%; height: 90px; background-color: #000; color: white;
+text-align: center;
+.link{color: #fdb44b;}
+p{padding-top: 15px;font-size: 1.2em;}
+h3{margin-top: 8px;}}
+}
+// ==== Footer section Responsivliyi  =======
+@media screen and (max-width: 780px){
+#footer-section{  margin-top: 100px;
+.container{
+.footer{ @include flex3();
+.footer-left{  margin-bottom: 80px; width: 100%;}
+.footer-right{ width: 100%;
+.Subscribe{   @include flex3();width: 55%;} 
+    }}} }}
+
+@media screen and (max-width: 480px){
+    p{width: 100%}
+ #footer-section{
+.container{
+.footer{  @include flex3();
+.footer-left{   width: 100%;
+                margin-bottom: 40px;
+                @include flex3();
+.dinner-restaurant{  width: 100%;}  
+.lunch-dinner-service{width: 100%;}              }
+.footer-right{    @include flex3(); width: 100%;
+.links{width: 100%;}                  
+.Subscribe{@include flex3();width: 100%; 
+.inp{ margin-top: 20px; width: 100%;}    
+    }}}}}}  
+
+// <><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+// --------          About sheifesinin baslanmasi  ----
+//  ====   Section main-about start =====
+#about-main{
+    background-image: url("../images/about\ bg\ slider-1.jpg.webp");
+    background-position: center;
+    .about-restaurant{
+        padding-top: 250px;
+        text-align: center;
+        width: 50%;
+    }
+    h1{font-size: 3em;font-weight: 100; color: white; text-align: start;}
+    p{ 
+        color: white;
+        font-size: 1.5em;
+        line-height: 1.5em;
+        font-weight: 100;
+        text-align: start;
+        padding-top: 40px;
+    }    }
+    
+// ====   Section main-about Responsivliyi  ====
+@media screen and (max-width: 780px){
+    #about-main{
+    .about-restaurant{
+        text-align: center;
+        width: 50%;}
+    h1{font-size: 2em; }
+    p{ font-size: 1.2em;
+        line-height: 1.5em;
+    } }}   
+@media screen and (max-width: 480px){
+#about-main{
+.about-restaurant{
+            text-align: center;
+            width: 90%;}}}
+        
+
+
+
+// >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   Section Start   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>            
+// ==== Section Restaurnts History  start =====
+#restaurnts-history{
+.container{
+.history{
+    display: flex;
+    justify-content: space-between;
+.img{
+      width: 50%;
+      height: 400px;
+img{ width: 100%; height: 100%;}      
+} 
+.info-history{
+    width: 45%;
+h4{font-size: 2em; font-weight: 100;} 
+p{font-size: 1.2em;}   
+}   }}}
+// ==== Section Restaurnts History  Responsivliyi ===
+@media screen and (max-width: 780px){
+    #restaurnts-history{
+        .container{ width: 95%;
+        .history{
+           
+        .img{
+              width: 50%;
+              height: 300px;
+        img{ width: 100%; height: 100%;}      
+        } 
+        .info-history{
+        p{font-size: 1em;}   
+        } }}}}
+@media screen and (max-width: 480px){
+            #restaurnts-history{
+                .container{
+                    width: 90%;
+                .history{
+                    display: flex;
+                    flex-direction: column;
+                .img{
+                      width: 100%;
+                      height: 350px;
+                img{ width: 100%; height: 100%;}      
+                } 
+                .info-history{
+                    width: 100%;
+                h4{font-size: 2em; font-weight: 100;} 
+                p{font-size: 1.2em;}   
+                }   }}}
+        }
+
+
+
+ // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   Section Start   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>       
+//  ==== Section Restaurants Chef start =====
+#restaurants-chef{
+// bunlar bu sectionda qlobal olanlardir: 
+.row-carts{ @include flex0();
+.col-cart{ width: 21%; text-align: start;
+.image{width: 100%; height: 250px;
+img{width: 100%; height: 100%; border-radius: 5px;}} 
+h5{ font-size: 1.7em; margin-top: 30px;}
+h6{font-size: 1em; color: $write_color; margin: 10px 0;}
+p{ width: 100%; color: $write_color; font-size: 1.1em;}          }}
+
+// bunlar ise adi qayad ile css de yazilanlardir
+.container{
+.chef-header{    text-align: center;
+                 line-height: 7em;
+h3{ font-size: 3em; font-weight: 100;}    
+p{ font-size: 1.2em; width: 70%; margin: 0 auto; margin-bottom: 50px; }        
+}  }}  
+//  ==== Section Restaurants Chef  Responsivliyi =====
+@media screen and (max-width: 780px){
+#restaurants-chef{  margin-top: 100px;
+        // bunlar bu sectionda qlobal olanlardir: 
+.row-carts{ 
+.col-cart{ 
+.image{width: 100%; height: 150px;}
+h5{ font-size: 1.2em; margin-top: 10px;}
+
+p{  font-size: 0.7em;}          }}
+// bunlar ise adi qayad ile css de yazilanlardir
+.container{  
+.chef-header{    line-height: 3em;
+h3{ font-size: 2em; font-weight: 100;}    
+p{ font-size: 1em; width: 50%; margin: 0 auto; margin-bottom: 30px; }        
+}  }} }    
+@media screen and (max-width: 480px){#restaurants-chef{
+    // bunlar bu sectionda qlobal olanlardir: 
+.row-carts{ @include flex3();
+            
+.col-cart{ width: 90%;
+           margin-top: 30px;
+.image{width: 100%; height: 350px;}
+// h5{ font-size: 1.2em; margin-top: 10px;}
+
+p{  font-size: 1em;}          }}
+// bunlar ise adi qayad ile css de yazilanlardir
+.container{ width: 100%;
+.chef-header{  width: 100%;
+//       line-height: 3em;
+// h3{ font-size: 2em; font-weight: 100;}    
+p{ width: 100%;}        
+}  
+}} } 
+
+
+
+//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+// ==== Our Menu seifesinin baslanmasi =====
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> SECTION  START  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+// ==== our-menu-main section start  =======
+#our-menu-main{background-image: url("../images/our\ menu\ slider-1.jpg.webp");
+    background-position: center;
+.about-restaurant{
+   width: 60%;
+   margin: 0 auto;
+ h1{ font-size: 3em;text-align: start;}  
+ p{font-size: 1.7em; font-weight: 100;} 
+}}
+// ==== our-menu-main section  Responzivlik
+@media screen and (max-width: 780px){
+#our-menu-main{
+.about-restaurant{
+       width: 70%;
+       margin: 0 auto;
+h1{ font-size: 2.8em;text-align: start;}  
+p{font-size: 1.3em; font-weight: 100;} 
+    }} }
+@media screen and (max-width: 780px){
+#our-menu-main{
+.about-restaurant{
+           width: 90%;
+           margin: 0 auto;
+h1{ font-size: 2em;text-align: start;}  
+p{ font-size: 1em; font-weight: 100;} 
+        }} }    
+
+
+//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+// =======    Our Blog seifesinin baslanmasi =====        
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> SECTION  START  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+// ====  our-blog-main section start ==========
+#our-blog-main{background-image: url("../images/our\ menu\ slider-1.jpg.webp");
+    background-position: center;
+    .about-restaurant{
+        width: 60%;
+        margin: 0 auto;
+      h1{ font-size: 3em;text-align: start; margin-bottom: 20px;}  
+      p{font-size: 1.7em; font-weight: 100;} 
+     }}
+
+@media screen and (max-width: 780px){
+        #our-blog-main{
+        .about-restaurant{
+               width: 70%;
+               margin: 0 auto;
+        h1{ font-size: 2.8em;}  
+        p{font-size: 1.3em;} 
+            }} }
+@media screen and (max-width: 780px){
+                #our-menu-main{
+                .about-restaurant{
+                           width: 90%;
+                           margin: 0 auto;
+                h1{ font-size: 2em;}  
+                p{ font-size: 1em;} 
+                        }} }  
+
+
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> SECTION  START  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+// ====  best-food section start ========== 
+#best-food{ background-color: white;
+.container{
+.food-section{
+.food-carts-row{   @include flex0();
+                   flex-wrap: wrap;
+.food-cart-col{    margin-top: 50px;
+                   @include flex3();
+                   box-shadow: 0 10px 20px -5px rgb(0 0 0 / 10%);
+                   width: 30%;
+.image{   width: 100%; height: 300px; margin-bottom: 20px;
+ img{ width: 100%;  height: 100%;}}
+.cart-info{ padding: 15px;
+p{width: 100%;}    
+a{font-size: 1.1em; color: black;
+&:hover{ color: $write_color;}}
+.date{ display: inline-block; margin: 15px 0; font-size: 1em;
+.icon{ margin-right: 10px;}}
+}    
+a.btn{ margin: 20px;}
+}  }
+.jump-pages{ display: flex; justify-content: space-between;
+   margin-top: 100px; 
+.one{
+    background-color: #fdb44b;
+    color: white;
+}   
+span{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 40px;
+    color: #fdb44b;
+&:hover{
+    background-color: $write_color;
+}    
+    font-size: 1.5em;
+i{ line-height: 40px;}
+   } }}}}   
+
+// ====  best-food section  RESPONSIVLIYI  ========   
+@media screen and (max-width: 780px){
+#best-food{ 
+.container{ width: 95%;
+.food-section{
+.food-carts-row{   
+.food-cart-col{    
+.image{   width: 100%; height: 200px;
+ img{ width: 100%;  height: 100%;}}
+.cart-info{ padding: 15px;
+ p{width: 100%; font-size: 1em;}    
+ a{font-size: 0.9em; color: black;
+            }} }}}} } }
+@media screen and (max-width: 480px) {
+#best-food{ background-color: white;
+.container{  width: 95%;
+.food-section{
+.food-carts-row{  @include flex3();
+.food-cart-col{   width: 90%;
+.image{   width: 100%; height: 300px; 
+ img{ width: 100%;  height: 100%;}}} }}}}  } 
+          
+       
+//<><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><><>
+// ==== Our Menu seifesinin baslanmasi =====
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> SECTION  START  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+// ====  Section  Reserve A Table  start  =======
+#reserve-main{background-image: url("../images/our\ menu\ slider-1.jpg.webp");
+    background-position: center;
+.about-restaurant{
+   width: 60%;
+   margin: 0 auto;
+ h1{ font-size: 3em;text-align: start;}  
+ p{font-size: 1.7em; font-weight: 100;} 
+}}
+// ==== Section  Reserve A Table Responzivlik
+@media screen and (max-width: 780px){
+#reserve-main{
+.about-restaurant{
+       width: 70%;
+       margin: 0 auto;
+h1{ font-size: 2.8em;text-align: start;}  
+p{font-size: 1.3em; font-weight: 100;} 
+    }}}
+@media screen and (max-width: 780px){
+#reserve-main{
+.about-restaurant{
+           width: 90%;
+           margin: 0 auto;
+h1{ font-size: 2em;text-align: start;}  
+p{ font-size: 1.3em; font-weight: 100;} 
+        }} }   
+       
+//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> SECTION  START  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> -->
+// ====  Section Reservation start  =======              
+#reservation{  
+.reservation-head{
+    width: 50%;
+    text-align: center;
+    margin: 100px auto 0;
+h3{ font-size: 3.3em; font-weight: 100;}
+p{   margin-top: 20px;   font-size: 1.3em; color: $write_color;}         
+} 
+.image-map{
+    position: relative;
+    margin-top: 200px;
+    width: 100%;
+    height: 500px;
+    opacity: 0.8;
+img{
+width: 100%;
+height: 100%;
+} 
+.form-group{ 
+             position: absolute;
+             top: -100;
+             left: 15%;
+             z-index: 15;
+             width: 70%;
+             margin: 0 auto;
+             display: flex;
+             flex-wrap: wrap;
+              justify-content: space-around;
+              padding: 15px;
+              background: #fff;
+              box-shadow: 0 30px 40px -30px rgb(0 0 0 / 70%);
+.input-wrap{
+               padding: 20px;
+               width: 30%;
+label{ display: block; font-size: 1.4em; margin-bottom: 10px;}               
+.inp{
+                position: relative;
+.icon{
+                    position: absolute;
+                     right: 30;
+                     top: 30%;}
+input{
+                        border: 1px solid $write_color;
+                        border-radius: 5px;
+                        padding: 15px 30px;
+                     } 
+input:focus{
+                        color: #495057;
+                        background-color: #fff;
+                        border-color: #fee9c9;
+                        outline: none;
+                        box-shadow: 0 0 0 0.2rem rgb(253 180 75 / 25%);
+                    }  }
+#submit {
+                display: block;
+                text-align: center;
+                border: 2px solid  #fdb44b;;
+                color: #fdb44b;  }
+#submit:hover{
+                background-color: #fdb44b;
+                color: white; 
+                cursor: pointer; }
+#submit{ display: block; width: 100%;}            
+#date{ display: block; width: 100%;}
+#time{ display: block; width: 100%;}                         
+     }    } }}
+// ==== Section  Reservatio  Responzivlik
+@media screen and (max-width: 780px){
+#reservation{   width: 100%;
+.reservation-head{
+            width: 70%;
+p{   margin-top: 15px;   font-size: 1em; color: $write_color;}         
+        } 
+.image-map{
+            width: 100%;
+            height: 350px;
+img{
+width: 100%;
+        height: 100%;
+} 
+.form-group{ 
+              width: 97%;
+              left: 10px;
+               margin: 0 auto;
+               padding: 10px;
+                     
+.input-wrap{padding: 10px;
+                   width: 30%;
+label{ display: block; font-size: 1em; margin-bottom: 5px;}               
+.inp{
+.icon{     position: absolute;
+                   right: 20;
+                    top: 30%; }
+input{   padding: 10px 10px; } }    } } }   }       } 
+@media screen and (max-width: 480px){
+    #reservation{  
+        .reservation-head{
+            width: 90%;
+            text-align: center;
+            margin: 100px auto 0;
+        h3{ font-size: 2.3em;}
+        p{   margin-top: 20px;   font-size: 1em;}         
+        } 
+        .image-map{
+            position: relative;
+            margin-top: 100px;
+            width: 100%;
+            height: 800px;
+        img{
+        width: 100%;
+        height: 100%;
+        } 
+        .form-group{   width: 100%;
+                       left: 0;
+                       z-index: 15;
+        .input-wrap{   width: 100%;
+        label{ display: block; font-size: 1em; }               
+        input{ width: 100%;  }
+    } }}}}
+
+                               
+                               
+                           
+        
+                              
+          
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.aa{
+    margin-top: 500px;
+}
